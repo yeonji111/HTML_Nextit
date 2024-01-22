@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기타 태그들</title>
+</head>
+<body>
+    <!-- 진행 과정을 표현할 수 있는 태그 progress-->
+    <progress value="0" max = "10"></progress>
+
+    <!-- 값이 차지하는 크기 표시하는 태그 meter-->
+    <meter value="64" max="100"></meter>
+    <script>
+        let progress = document.querySelector("progress") 
+        const timeId = setInterval(() => {
+            progress.value++
+        if(timeId == 10) {
+            clearInterval(timeId)
+        }
+        },1000)
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>select,option,optgroup,multiple,selected,readonly,disabled</title>
+</head>
+<body>
+    <ol>
+        <li>dropdown list</li>
+        <li>select box</li>
+    </ol>
+    <input type="text" value="abcd" name="name" readonly> <!-- 서버에 값이 전송되긴 함-->
+    <input type="text" value="abcd" name="name" disabled> <!-- 서버에 값 전송 X-->
+    <input type="text" value="abcd" name="name" maxlength="10"> <!--길이를 10으로 제한-->
+    <select name="city">
+        <option value="강북구">강북구</option>
+        <option value="강남구">강남구</option>
+        <option value="서초구">서초구</option>
+        <option value="중원구" selected>중원구</option>
+        <option value="분당구">분당구</option>
+    </select>
+    <select name="city2" size = "10" multiple>
+        <optgroup label="서울시">
+            <option value="강북구">강북구</option>
+            <option value="강남구">강남구</option>
+            <option value="서초구">서초구</option>
+        </optgroup>
+        <optgroup label="성남시">
+        <option value="중원구" selected>중원구</option>
+        <option value="분당구">분당구</option>
+        </optgroup>
+    </select>
+</body>
+</html>
