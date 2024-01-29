@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 4000px;
+
+        }
+        .box{
+            width: 100px;
+            height: 100px;
+        
+        }
+        .red-box{
+            background-color: red;
+        }
+        .green-box{ /* position : absolute되는 경우 취급에서 제외*/
+            background-color: green;
+            position: sticky; /* sticky는 float 되지 않음, fixed는 floate 됨*/
+            left: 108px; /* margin 겹침 현상으로 인해 튀어나와서 +8px씩 해줌*/
+            top: 0; /* sticky의 top에 0을 지정하는 경우 임계점이 0이라 top에 바짝 붙어있음*/
+           /* z-index: -10; */
+           
+        }
+        .blue-box{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="box red-box"></div>
+    <div class="box green-box"></div>
+    <div class="box blue-box"></div>
+</body>
+</html>

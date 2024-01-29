@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transition</title>
+    <style>
+        .red-box{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition-property: background-color;
+            transition-duration: 5s;
+            transition-delay: 2s;
+        }
+        .red-box:hover{
+            background-color: blue;
+        }
+        .bar{
+            background-color: blue;
+            width: 10px;
+            transition-property: width, color;
+            transition-duration: 5s;
+            transition-timing-function: ease;
+            /* transition: width, 5s, ease, 0s 와 동일하다. 한 번에 적용이 가능 */
+        }
+        .bar:hover{
+            width:210px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="red-box"></div>
+    <div class="bar">transition</div>
+    
+</body>
+</html>
