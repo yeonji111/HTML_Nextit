@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>script</title>
+    <link rel="stylesheet" href="#"> <!-- CSS -> HTML -> 자바스크립트 -->
+</head>
+<body>
+    <div></div>
+    <script>
+        "use strict"; // => ES6버전 이하 하위 호환 안됨(하위 버전 문법을 용인 X), 안쓰면 sloppy mode(느슨한 모드, 하위 버전 문법을 용인 O)
+        console.log("안녕하세요") // 화면에 출력하지 않고 검사 -> console에서 오류 확인 가능함
+        document.write("안녕하세요.") // 자바의 System.out.println과 동일함
+        alert("알림창") // 경고창
+        let result = confirm("안녕하셨어요?")  // Y/N 
+        document.write(result)
+        
+        let number = prompt("숫자를 입력하세요") // 자바의 scan.nextLine()과 비슷하게 사용자에게 입력을 요함
+        document.write("입력하신 숫자는 " + number +"입니다.")
+    </script>
+</body>
+</html>
