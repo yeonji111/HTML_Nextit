@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    // Javascript의 객체(Object)
+    // (참고) 리터럴(Literal): 변수에 할당되는 데이터 그 자체를 이야기함
+    // 객체 기호 : {}
+    let human = {name: "홍길동", age: 20};
+    console.log(human.name);
+
+    // 배열 기호 : [] -- java 수업의 GSON처럼 배열 안의 배열같은 형식 가능
+    // documnet.write로 찍었을 경우 객체는 출력이 안되는데 왜지(object라고 출력됨)
+    let scores = [80,70,90,60,"홍길동", "이순신", true, human, {name: "황", age: 10}];
+    let hum = {nuame: "이순신", age: 30, hobbies: ['독서', '글쓰기', '배타기']}
+    console.log(scores);
+    console.log(hum);
+
+    document.write(scores)
+    document.write(hum)
+   </script>
+</body>
+</html>
