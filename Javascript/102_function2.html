@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+</head>
+
+<body>
+    <script>
+        // 1. 함수 선언문
+        // function gugudan() {
+        //     for (let i = 1; i < 10; i++){
+        //         console.log(`3 * ${i} = ${3 * i}`)
+        //     }
+        // }
+
+        // 2. 함수 표현식
+        // const gugudan = function () {
+        //     for (let i = 1; i < 10; i++) {
+        //         console.log(`3 * ${i} = ${3 * i}`)
+        //     }
+        // }
+        // gugudan()
+
+        // 2 - 1. 함수 선언문
+        function gugudanForString() {
+            let retStr = "";
+            for (let i = 1; i < 10; i++) {
+                retStr += `3 * ${i} = ${3 * i}\n`
+            }
+            // console.log(retStr)
+            return retStr;
+        }
+        gugudanForString()
+
+
+
+
+        // 2 - 2
+        // const (상수) 로 함수를 표현한 gugudan 함수가 있으므로 덮어쓰기가 불가능
+        // gugudan = function(){
+        //     console.log("메롱")
+        // }
+        // gugudan()
+
+        // 3. 화살표 함수 (람다 표현식)
+        const gugudan3 = () => {
+            for (let i = 1; i < 10; i++) {
+                console.log(`3 * ${i} = ${3 * i}`)
+            }
+        }
+        gugudan3()
+
+        // 4. 매개변수와 인수를 사용한 함수 확장
+        // 원하는 구구단을 파라미터 dan에 입력하면 해당 구구단이 출력
+        // 함수 안에 있는 파라미터가 매개변수
+        // 함수 호출 시 파라미터값으로 입력하는 숫자가 인수
+        const gugudan = function(dan = 2){
+            for(let i = 1; i < 10; i++){
+                console.log(`${dan} * ${i} = ${dan * i}`)
+            }
+        }
+        // 인수로 9를 넣어 9단 출력
+        gugudan(9)
+
+        // 매개변수 = n 으로 하면 undefined 인 경우 n이 디폴트값이 됨
+        // 함수 내 매개변수가 없는 경우 undefined, 실행은 됨
+        gugudan() 
+
+        // 인수를 매개변수와 다르게 넣어도 매개변수의 자릿수에 맞게 실행 -> 5단이 출력됨
+        gugudan(5,10)  
+
+
+    </script>
+
+</body>
+
+</html>

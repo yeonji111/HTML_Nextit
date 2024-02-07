@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 두 수를 입력받아 두 수를 더하는 함수를 정의하고
+        // document.write를 이용하여 출력하시오.
+        // 입력값 : 10, 20
+        // 출력 결과: 두 수의 합은 30입니다.
+
+        // function sum(inputA, inputB){
+        //     document.write(`출력 결과: 두 수의 합은 ${inputA+inputB}입니다.`)
+        // }
+
+        // sum(10,20)
+
+        // const sum = (num1, num2) => num1 + num2;
+        // documnet.write(`두 수의 합은 ${sum(10, 20)}입니다.`)
+
+
+
+        // 코드에서 max 변수의 출력값이 배열 중 가장 큰 숫자가 될 수 있도록 getArrayNumber() 함수를 완성하는 문제
+
+        // 내가 한 버전
+        // function getArrayMaxNumber(arr) {
+        //     let temp = 0;
+        //     for (let i = 0; i < arr.length; i++) {
+        //         if (temp < arr[i]) {
+        //             temp = arr[i]
+        //         }
+        //     }
+        //     console.log(temp)
+        //     return temp
+        // }
+
+        // 쌤이 한 버전
+        function getArrayMaxNumber(arr){
+            let max = arr[0]; // 최소값 , 배열 안에 음수가 있어도 배열 안에 있는 데이터들 끼리끼리 비교니까 안전
+            for(item of arr){
+                if (item > max){
+                    max = item
+                }
+            }
+            return max
+        }
+
+
+        const max = getArrayMaxNumber([10, 50, 30, 80, 91, 37, 3])
+        document.write(`가장 큰 수는 ${max}입니다.`)
+
+
+        const init = function() {
+            console.log("initialized!")
+        }
+        init();
+
+        (function () {
+            console.log("initialized!");
+        })/* -> 소괄호로 감싸 함수 정의 */();/* -> 함수 실행 = 즉시 실행 함수이면서 익명 함수라고 부름 */
+        
+
+        // 객체 생성 - 값에 함수 넣기 - 함수 생성과 동시에 함수 실행 - 마지막 콘솔창에 리턴값 출력
+        let result = (function(num1, num2){
+            return num1+num2;
+        })(10,20)
+        console.log(result);
+
+       
+    </script>
+</body>
+
+</html>

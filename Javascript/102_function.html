@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+</head>
+<body>
+    <script>
+        let num = 10
+        // num();
+
+        // 1. 가장 자바스크립트다운 함수 정의
+        let buyBread1 = function(type,money){
+            money -= 2500
+            return type;
+        } 
+
+        // 2. 다른 언어와의 호환성을 고려한 함수 정의
+        function buyBread2(type,money){
+            money -= 1500
+            return type
+        }
+
+        // 함수 호출 - 변수(파라미터,타입 ...)
+        console.log(buyBread1("cream bread", 5000))
+        console.log(buyBread2("bread", 3000))
+        </script>
+    
+</body>
+</html>
