@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function a (){
+            alert("안녕하세요.")
+        }
+        // a();     ->setTimeout 을 작성하지 않는다면 그냥 바로 호출되어버림
+
+        // 5초를 경과시킨 후 a함수 호출
+        // callback 함수라고 한다.
+        // 이벤트 처리를 위해서 콜백함수를 사용한다.
+        setTimeout(a,5000); 
+    </script>
+</body>
+</html>

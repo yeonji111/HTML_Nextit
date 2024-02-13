@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Human {
+            constructor(name) {
+                this.name = name
+            }
+        }
+
+        let hong = new Human("홍길동")
+        
+
+        let person1 = {
+            name: "홍길동", 
+            age: 25, 
+            breath: function () {console.log('숨을 쉬다') }
+        }
+        person1.breath()
+        console.log(person1.age)
+        person1.age =30;
+        console.log(person1.age)
+    
+        person1.height = 179;
+        console.log(`방금 추가한 키는 ${person1.height}`)
+        // property 접근법
+        console.log(person1["name"]) // person1.name 과 같은 코드
+
+    
+        const students = {
+            s1: "김태완",
+            s2: "유정현",
+            s3: "강성구",
+            s4: "김미승",
+            s5: "정의철",
+            s6: "이건희",
+            s7: "이용석",
+            s8: "정회환",
+            s9: "주형구",
+            s10: "박연지",
+            s11: "안승환",
+            s12: "이창훈",
+            s13: "박유나",
+            s14: "신해성",
+        
+        }
+        for(let i = 1; i < 15; i++){
+            console.log(students[`s${i}`]);
+        }
+
+
+    </script>
+</body>
+
+</html>

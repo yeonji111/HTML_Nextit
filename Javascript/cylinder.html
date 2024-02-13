@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 생성자 함수와 클래스를 사용해서 원기둥의 부피를 구하기
+        // 밑면의 넓이 X 높이 
+        // = 2 * PI * 반지름 * 높이
+        // 클래스 구조
+        // 이름 : Cylinder
+        // 속성 : 1. 반지름(radius)
+        //        2. 높이(height)
+        //        3. 부피구하는 함수(getVolume) 
+
+        // 1. 생성자 함수
+        const Cylinder = function (radius, height){
+            this.radius = radius;
+            this.height = height;
+            this.getVolume = function(){
+                return (Math.PI * this.radius ** 2 * this.height).toFixed(2);
+
+            }
+        }
+
+       // 1. 생성자 함수를 이용한 클래스 활용, 객체 생성
+        // let a = new Cylinder(4,10)
+        // document.write(`원기둥의 부피는 ${a.getVolume()}`);
+
+
+        // 2. 클래스를 사용한 방법
+        // class Cylinder{
+        //     constructor(radius,height){
+        //     this.radius = radius
+        //     this.height = height
+        //     }
+        //     getVolume(){
+        //         return (Math.PI * this.radius ** 2 * this.height).toFixed(2);
+        //     }
+            
+        // }
+
+        // 2. 클래스를 이용한 새로운 객체 생성
+        let a = new Cylinder(4,10)
+        document.write(`원기둥의 부피는 ${a.getVolume()} <br>`);
+        let b = new Cylinder(5,10)
+        document.write(`원기둥의 부피는 ${b.getVolume()} <br>`);
+        let keys = Object.keys(a)
+        document.write(keys + "<br>")
+        keys.forEach(key => {
+            document.write(`${key} : ${a[key]}<br>`)
+        })
+
+        let values = Object.values(a)
+        document.write(values + "<br>") // 4,10,function(){ return (Math.PI * this.radius ** 2 * this.height).toFixed(2); }
+
+        let entries = Object.entries(a)
+        document.write(entries + "<br>")
+    </script>
+</body>
+</html>

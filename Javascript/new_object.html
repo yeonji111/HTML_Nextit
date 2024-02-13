@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>new_object.html</title>
+</head>
+
+<body>
+    <script>
+        /* 사람(human)은 이름(name)과 나이(age), 그리고 숨쉬다(breath())가 있다.*/
+
+        // 자바스크립트 리터럴 형식
+        let obj1 = {
+            name: '홍길동',
+            age: 20,
+            breath: function () { console.log('숨쉬다.') }
+        }
+        obj1.gender = "male";
+
+        // 자바스크립트에서 클래스를 정의하는 방법
+        // 자바스크립트는 함수가 1급 객체이다.
+        // 1. 전통적인 방법 : 생성자 함수
+        /* 자바: public class Human {
+                private String name;
+                private int name
+                private void breath(){}
+                } 와 동일하다 */
+
+        /*
+function Human (name, age){
+    this.name = name;
+    this.age = age;
+    this.breath = function (){ 
+        console.log('숨쉬다.');
+    }
+}
+ 
+function Person(name, age) {
+    document.write(`person에서 받은 이름은 ${name}입니다.`)
+
+}
+        */
+        // 2. 새로운 방법(ES6) : 클래스 선언
+        // syntactic sugar(신택틱 슈거 : 설탕을 살짝 바른 구문)
+        class Human {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            /* 클래스 내부의 함수 정의 방식 
+            // 1. 전통적인 방식
+            breath = function() {
+                console.log('숨쉬다.')
+             }
+                */
+            // 2. ES6 새로운 방식
+            breath() {
+                console.log('숨쉬다.')
+            }
+        }
+
+
+
+
+        // 객체 활용
+        // 객체 생성
+        // let hong = new Person("홍길동",20); // 새로운 객체 생성 X , this가 없었으므로 변수 선언이 없다고 생각하여 undefined 가 출력됨
+        // document.write(hong.name)
+        // hong.name = "이순신";
+        // document.write(hong.name)
+        let hong = new Human('홍길동', 20);
+        let lee = new Human('이순신', 30);
+        let ryu = new Human('류승룡', 50);
+
+        document.write(ryu.name)
+        document.write(lee.name)
+        
+        Human("김기수", 35);
+        document.write(this.age)
+
+
+    </script>
+
+</body>
+
+</html>
