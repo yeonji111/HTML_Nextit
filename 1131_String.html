@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1131_String.html</title>
+    <style>
+        span{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // length : 문자열의 길이
+        let pw = prompt("비밀번호를 입력하세요.")
+        if (pw.length < 4){
+            document.write(`비밀번호는 최소 4자리 이상 입력해주세요.`)
+        } else{
+            document.write(`비밀번호 등록 완료`)
+        }
+
+        // includes : 포함 여부
+        const email = "test!naver.com";
+        if (!email.includes('@')){ // email.includes('@') === false 와 같은 표현  * ( === 은 타입까지 동일한 지 확인하는 것)
+            document.write('올바른 이메일 형식이 아닙니다.')
+        } else {
+            document.write(`올바른 이메일 형식입니다.`)
+        }
+
+        // indexOf : 글자의 위치 , 없으면 -1 , 있으면 해당 글자의 인덱스 번호 반환
+        if(email.indexOf("@" < 0)){
+            document.write(`올바른 이메일 형식이 아닙니다.`)
+        }
+
+        // replace : 일치하는 부분을 찾아서 원하는 값으로 반환
+        const newEmail = email.replace(`!`,`@`)
+        document.write(newEmail)
+
+
+        let a = new Array();
+        let str = "김잔디 기자 = 대한의사협회(의협) 비상대책위원회가 오는 17일 제1차 회의를 열어 대한의사협회는 회의중 대한의사협회는 의대인원증대 반대중."
+        let str2 = str.replace(/대한의사협회/g, "<span>의협</span>") //   /키워드/g 는 글로벌하게 키워드명을 찾는다는 의미로 replaceAll 과 비슷하다.
+        document.write(str2)
+    </script>
+    
+</body>
+</html>
