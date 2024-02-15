@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li{
+            list-style-type: none;
+        }
+        #inputArea {
+            position: fixed;
+            bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <ul id = "messageList">
+
+    </ul>
+    <div id = "inputArea">
+    <input type="text" id = "message">
+    <button id = "inputBtn">입력</button>
+    </div>
+    <script>
+        document.getElementById("inputBtn").addEventListener("click", function(){
+            const message = document.getElementById("message");
+            document.getElementById("messageList").innerHTML += `<li>${message.value}</li>`
+            // scrollTo(0, 200); // 절대값
+            scrollBy(0, 200); // 상대값
+            message.value = "";
+            message.focus()
+        })
+
+
+        document.getElementById("message").addEventListener("keyup", function (e) {
+            if(e.keyCode === 13){
+            const message = document.getElementById("message");
+            document.getElementById("messageList").innerHTML += `<li>${message.value}</li>`
+            // scrollTo(0, 200); // 절대값
+            scrollBy(0, 200); // 상대값
+            message.value = "";
+            message.focus()
+            }
+         
+        })
+    </script>
+</body>
+</html>

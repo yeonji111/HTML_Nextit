@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1133_date.html</title>
+</head>
+<body>
+
+    <script>
+        // Date : 날짜 및 시간과 관련
+        const today = new Date(); // 현재 코드가 실행된 시점의 날짜로 객체가 생성
+        document.write(today.toLocaleString() + "<br>")
+        document.write(today.toString()+ "<br>")
+        document.write(today.toLocaleTimeString()+ "<br>")
+        document.write(today.toLocaleDateString()+ "<br>")
+
+        document.write(`${today.getUTCFullYear()}<br>`) 
+
+        document.write(`${today.getFullYear()}<br>`) 
+        document.write(`${today.getMonth()}<br>`) 
+        document.write(`${today.getDate()}<br>`) 
+        document.write(`${today.getDay()}<br>`)  // 일요일부터 토요일까지 배열에 담겨 인덱스가 0~6인데 목요일이라 인덱스 4번 출력
+        document.write(`${today.getHours()}<br>`) 
+        document.write(`${today.getMinutes()}<br>`) 
+        document.write(`${today.getSeconds()}<br>`) 
+        document.write(`${today.getMilliseconds()}<br>`) 
+        
+        // getTime()/setTime()
+        // 1970년 1월 1일 0시 0분 0초 000 밀리세컨드를 기준으로
+        // 현재까지 소요된 밀리초 
+        document.write(today.getTime() + "<br>");
+        let day100 = today.getTime() + 100 * 24 * 60 * 60 * 1000;
+        let someday = new Date(day100);
+        document.write(`${someday.toLocaleString()} <br>`)
+        
+        today.setTime(day100)
+        document.write(`${today.toLocaleString()}<br>`)
+
+        const date1 = new Date("2024-01-01")
+        const date2 = new Date("2024-02-14")
+        const dateDiff = date2.getTime() - date1.getTime()
+        const interval = dateDiff / (24 * 60 * 60 * 1000);
+        document.write(`두 날짜의 차이는 ${interval}일 입니다. <br>`)
+
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math.html</title>
+</head>
+<body>
+    <script>
+        // 자바스크립트의 랜덤 숫자 공식 (최대값(max), 최솟값(min))
+        // Math.floor(Math.random() * (max-min+1) + min)
+        
+
+        //35부터 70사이의 랜덤한 숫자 출력하기
+        // Math.random() 은 0이상 1미만의 난수를 반환
+
+        let count = 0;
+        while(true){
+            count ++;
+            const randomNumber = Math.floor(Math.random() * (70-35+1)  + 35);
+            document.write(`${count}번째 확인중.. <br>`)
+            if(randomNumber == 35){
+                document.write(randomNumber + "나왔다!");
+                break;
+            }
+        }
+        // const randomNumber = Math.floor(Math.random() * (70-35+1)  + 35);
+        // document.write(randomNumber)
+
+    </script>
+    
+</body>
+</html>

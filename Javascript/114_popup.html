@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>팝업</div>
+    <div id = "data">계룡로 825</div>
+    <button id = "sendBtn">보내기</button>
+
+    <script>
+        document.getElementById("sendBtn").onclick = function() {
+            let data = document.getElementById("data").innerText
+            opener.document.getElementById("result").innerText = data;
+        }
+        
+
+
+    </script>
+</body>
+</html>

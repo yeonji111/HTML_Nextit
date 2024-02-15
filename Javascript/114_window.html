@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window</title>
+    <!-- window.html 과 popup.html 를 같이 보며 복습해야함 -->
+</head>
+<body>
+    <button id = "popupBtn">팝업</button>
+    <button id = "getBtn">가져오기</button>
+    <div id = "result"></div>
+    <script>
+        let popup;
+
+        // 1번 방법 : 팝업 버튼 클릭 시 원하는 창(popup.html) 띄우기
+        document.getElementById("popupBtn").onclick = function(){
+           popup = window.open("popup.html", "", "width=400, height=300")
+        }
+
+        // + 부모 문서에 자식 데이터 가져오기
+        document.getElementById("getBtn").onclick = function(){
+            let data = popup.document.getElementById("data").innerText;
+            document.getElementById("result").innerText = data;
+        }
+
+
+        // 2번 방법 : 팝업 버튼 클릭 시 원하는 창(popup.html) 띄우기
+        // document.getElementById("popupBtn").addEventListener("click",function() {
+        //     window.open("popup.html", "", "width=400, height=300")
+        // })
+
+        
+        
+
+
+        // window.alert("알림");
+        // let input = window.prompt("숫자를 입력하세요.");
+        // document.write(input)
+
+        // alert, prompt는 window의 메소드이지만 window는 최상위 객체이므로 생략 가능
+
+        // window.open("digital_watch.html", "", "width=200px, height=100px")
+        // open("https://www.naver.com", "", "width=200px, height=100px")
+
+
+    </script>
+    
+</body>
+</html>

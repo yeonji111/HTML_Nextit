@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털 시계</title>
+    <style>
+        #date{
+            font-size: medium;
+            font-weight: lighter;
+        }
+
+        #time{
+            font-size: larger;
+            font-weight: bolder;
+        }
+
+    </style>
+</head>
+<body>
+    <div id = "date">2024년 2월 15일 목요일</div>
+    <div id = "time">오후(PM) 2:24:10</div>
+
+    <script>
+        // 1.년월일요일을 반환하는 함수
+        const getDate = function(){
+            const today = new Date(); 
+            const year = today.getFullYear();
+            const month = today.getMonth() + 1; // day처럼 0부터 11까지 숫자로 표시
+            const date = today.getDate();
+            const dayNum = today.getDay();
+            const dayArr = ["일요일","월요일","화요일","수요일","목요일","금요일","토요일"];
+            const day = dayArr[dayNum];
+            document.getElementById("date").innerText = `${year}년 ${month}월 ${date}일 ${day}`;
+            // return `${year}년 ${month}월 ${date}일 ${day}`;
+
+
+
+        }
+
+        // 2. 오전/오후 시간을 반환하는 함수
+        const getTime = function(){
+            const today = new Date();
+            document.getElementById("time").innerText = `${today.toLocaleTimeString()}`;
+            // return `${today.toLocaleTimeString()}`
+        }
+
+        // setTimeout() 1번
+        // setInterval() 여러번
+        setInterval(getDate, 1000 * 60); 
+        setInterval(getTime, 1000); // 1초마다 여러번 반복 
+        
+    </script>
+    
+</body>
+</html>
