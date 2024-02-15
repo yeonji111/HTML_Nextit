@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exercise141.html</title>
+</head>
+
+<body>
+    <button id="null">취소</button>
+    <script>
+        let arr = [];
+        while (true) {
+            let name = prompt("이름을 입력해주세요")
+            arr.push(name);
+            document.write(name)
+
+            if (name == "" && document.getElementById("null").click) {
+                break;
+            }
+            
+        }
+
+
+
+    </script>
+</body>
+
+</html>
