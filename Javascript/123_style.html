@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .text {
+            color : red;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 1;
+        }
+        .text-bg{
+            background-color: greenyellow;
+        }
+
+        /* p{
+            color : red;
+        } */
+    </style>
+</head>
+<body>
+    <p id = "text">text</p>
+    <script>
+        const textEl = document.querySelector("#text")
+        // textEl.style.color = "blue";
+        // textEl.style.backgroundColor = "yellow";
+        // textEl.style.fontWeight = "bold";
+        // textEl.style.fontSize = "50px";
+        textEl.classList.add("text")
+        textEl.classList.add("text-b")
+        textEl.classList.remove("text-bg")
+
+    </script>
+    
+</body>
+</html>

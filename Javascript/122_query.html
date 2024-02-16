@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>122_query.html</title>
+</head>
+<body>
+    <div class = "box-1">
+        <p class = "text">text-1</p>
+        <p class = "text">text-2</p>
+    </div>
+    <div class = "box-2">
+        <p class = "text">text-3</p>
+        <p class = "text">text-4</p>
+    </div>
+    <script>
+        // class가 box-1인 요소 선택
+        const box1 = document.querySelector(".box-1")
+        const textEls = document.querySelectorAll(".text")
+        // class가 box-2인 요소 안의 text인 모든 요소
+        const box2TextEls = document.querySelectorAll(".box-2 .text")
+
+        box2TextEls.forEach(el => {
+            console.log(el.innerHTML)
+        })
+
+    </script>
+
+
+</body>
+</html>
