@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" ondblclick="myEvent()" onmouseover="alert('안녕!')">인라인 이벤트 등록</button>
+    <button type="button" id = "pl">프로퍼티(속성) 리스너(Listener) 이벤트 등록</button>
+    <button type="button" id = "el">이벤트 등록 함수 이벤트 등록</button>
+
+    <script>
+        function myEvent () {
+            alert('click')
+        }
+
+        const pl = document.querySelector("#pl") // 아이디가 pl인 태그의 속성은 button이다.
+        // pl.onclick = myEvent(); // X myEvent의 리턴값을 담으라는 의미
+        // pl.onclick = myEvent; // 이벤트가 발생했을때 myEvent 를 실행하라는 의미
+
+        // pl.onclick = myFunc;
+
+        const el = document.querySelector("#el")
+        // 이벤트 메소드를 사용할 때는 'on'을 제외하고 작성
+        // 함수의 호출이 아니라 함수명만을 적어야함.
+        // el.addEventListener("click",myEvent);
+        el.addEventListener("click", myFunc = function(evt){
+            alert("click func")
+            console.log(evt)
+        });
+        
+
+    </script>
+    
+</body>
+</html>

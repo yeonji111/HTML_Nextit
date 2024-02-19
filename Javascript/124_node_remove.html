@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>124_node_remove.html</title>
+</head>
+
+<body>
+    <p>text 1</p>
+    <a href="https://www.naver.com">네이버</a>
+    <a href="https://nextit.or.kr">넥스트아이티</a>
+    <p>text 2</p>
+    <script>
+        const pEl = document.querySelector("p")
+        // document.body.removeChild(pEl); // body 안의 첫번째 p태그가 삭제됨
+
+        pEl.parentElement.removeChild(pEl);
+
+        const aEls = document.querySelectorAll("a");
+        aEls.forEach((node) => {
+            node.parentNode.removeChild(node);
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>124_node.html</title>
+</head>
+<body>
+
+    <div id = "result"></div>
+
+    <script>
+        const aEl = document.createElement("a");
+        const hrefAttr = document.createAttribute("href");
+        hrefAttr.value = "https://nextit.or.kr";
+        const textEl = document.createTextNode("넥스트아이티");
+        
+        // 속성 노드 추가, .setAttributeNode()
+        aEl.setAttributeNode(hrefAttr);
+        
+        // 텍스트 노드 추가, appendChild()
+        aEl.appendChild(textEl);
+
+        // a 노드도 현재 문서에 추가, .appendChild()
+        // document.body.appendChild(aEl)
+        document.querySelector("#result").appendChild(aEl);
+
+
+        document.querySelector("#result").innerHTML = "<a href='https://nextit.or.kr'>넥스트아이티</a>"
+
+
+
+    </script>
+</body>
+</html>

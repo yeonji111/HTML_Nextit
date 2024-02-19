@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id = "text" class="red-color fz20">sample text</p>
+    <script>
+
+        /* p태그의 fz20 클래스 속성을 삭제하고, sample text를 change text로 변경하고 싶은 경우 */
+        const pEl = document.querySelector("#text");
+
+        pEl.innerText = "change text";
+        pEl.classList.remove("fz20");
+        // pEl.innerHTML = "change text";
+        // pEl.removeAttribute("fz20");
+
+    </script>
+</body>
+</html>

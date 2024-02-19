@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+<body>
+    <button data-cnt="10">가방 구매</button>
+    <button data-cnt="1">신발 구매</button>
+    
+    <script>
+        const shoes = document.querySelector("button:nth-child(1)");
+        shoes.addEventListener('click', function (el) {
+            // alert(`재고: ${shoes.detaset.cnt}개`);
+            if(shoes.dataset.cnt > 0){
+                shoes.dataset.cnt -= 1;
+            } 
+            if(shoes.dataset.cnt == 0){
+                shoes.disabled = true;
+            }
+        })
+    </script>
+</body>
+</html>

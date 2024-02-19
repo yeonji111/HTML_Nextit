@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red-font{
+            color : red;
+        }
+        .blue-bg {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <a href="https://nextit.or.kr">넥스트아이티교육센터학원</a>
+    <script>
+        const aEl = document.querySelector("a")
+        const href = aEl.getAttribute("href")
+        console.log(href)
+        aEl.setAttribute("href", "http://nextit.or.kr:5000")
+        // aEl.classList.add("red-font");
+        // aEl.classList.add("blue-bg");
+        aEl.setAttribute("class", "red-font")
+
+    </script>
+</body>
+</html>
