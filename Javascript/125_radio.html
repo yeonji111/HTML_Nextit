@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>125_radio.html</title>
+</head>
+
+<body>
+    <form name ="exam">
+        1. 다음 중 HTML은 무엇을 뜻하는가?<br>
+        <label><input type="radio" name="q1" value="1">Hyper Text MarkUp Language</label><br>
+        <input type="radio" name="q1" value="2" id="q1-2"><label for="q1-2">Hyper Text Manage Language</label><br>
+        <label><input type="radio" name="q1" value="3">Hip Text Markup Language</label><br>
+        <button type="button" id = "submitBtn">제출</button>
+    </form>
+
+    <script>
+        const q1 = document.exam.q1;
+        const submitBtn = document.querySelector("#submitBtn");
+        submitBtn.addEventListener('click', function(){
+            alert(q1.value)
+            // radio버튼이 아니라 checkbox라면 q1.value로 바로 데이터를 꺼내오는게 불가능하다
+            // 체크박스는 checked 되어야 value를 가지기 때문
+        })
+
+        
+        // q1.forEach(el => {
+        //     el.addEventListener("click", function(){
+        //         alert(el.value);
+        //     })
+        // });
+        
+    </script>
+</body>
+
+</html>

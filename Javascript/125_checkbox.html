@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        tr,
+        td,
+        th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button" id="delBtn">삭제</button>
+    <table>
+        <tr>
+            <th><input type="checkbox" value="all" name="all"></th>
+            <th>제목</th>
+            <th>비고</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="title" value="1"></td>
+            <td>제목1</td>
+            <td>비고1</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="title" value="2"></td>
+            <td>제목2</td>
+            <td>비고2</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="title" value="3"></td>
+            <td>제목2</td>
+            <td>비고2</td>
+        </tr>
+    </table>
+
+
+    <script>
+        const delBtn = document.querySelector("#delBtn");
+        delBtn.addEventListener('click', function () {
+            // 삭제 버튼을 누른 후 진행되는 코드
+            // check 박스에 체크 표시한 데이터를 가져온 후 삭제
+            const checkboxEls = document.querySelectorAll("input[type='checkbox']");
+            // type이 체크박스인 것들을 forEach로 하나하나 다 가져옴
+            // checkboxEls.forEach(el => {
+            //     alert(el.value)
+            // })
+
+            // type이 체크박스인 것들 중에서 체크된 것들만 alert로 표시
+            checkboxEls.forEach(el => {
+                if (el.checked) {
+                    alert(el.value)
+                    el.checked = false; // 체크표시 해제
+                }
+
+            })
+        })
+
+        const titleEls = document.querySelectorAll("input[name=title]");
+        const allCheckbox = document.querySelector("input[name =all]");
+        
+        allCheckbox.addEventListener('click', function () {
+            titleEls.forEach(el => {
+                el.checked = allCheckbox.checked;
+            })
+        })
+
+        titleEls.forEach(el => {
+            el.addEventListener('click', function(){
+                allCheckbox.checked = el.checked;
+            });
+        })
+
+
+
+    </script>
+</body>
+
+</html>

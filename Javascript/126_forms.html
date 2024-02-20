@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name ="form1">
+        <input type="text" name ="uname">
+    </form>
+    <form name ="form2">
+        <input type="text" name ="age">
+    </form>
+    <form name = "form3">
+        <input type="text" name ="gender">
+    </form>
+
+
+    <script>
+        // 폼 접근 방식
+        // 1. document.getElementByTagName("form")
+        document.getElementsByTagName("form");
+
+        // 2. 전통적인 방식 : 배열로 처리
+        document.forms[0]
+
+        // 3. 폼 이름으로 접근
+        document.form1;
+
+        // 폼 안의 요소(element) 접근 방식
+        // 1. elements[0]
+        console.log(document.forms[0].elements[0]);
+
+        document.getElementsByTagName("form")[0].elements[0];
+        document.forms[0].elements[0];
+        document.form1.elements[0];
+
+        // 2. 요소 이름으로 접근 방식
+        document.getElementsByTagName("form")[0].uname;
+        document.forms[0].uname;
+        document.form1.uname;
+    </script>
+</body>
+</html>
