@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name = "myform">
+        <select name = "fruits" size = "5" multiple>
+            <option value ="apple">사과</option>
+            <option value ="banana">바나나</option>
+            <option value="orange">오렌지</option>
+            <option value="melon">멜론</option>
+        </select>
+        <button>전송</button>
+    </form>
+    <script>
+        const btn = document.querySelector("button");
+        btn.addEventListener('click',function(e){
+            e.preventDefault();
+            // alert(document.myform.fruits.value);
+            // 선택한게 없으면 -1 을 alert
+            // alert(document.myform.fruits.selectedIndex);
+            const options = document.querySelectorAll("form > select > option");
+            options.forEach( el => { 
+                // alert(el.selected); // 선택여부를 true/false로 알림
+                // if(el.value == "오렌지"){
+                //     el.selected = true; // el에 "오렌지" 값이 있으면 선택하는 코드
+                // }
+                    el.selected = !el.selected; // 전송 버튼을 눌렀을때 선택안되어있는 옵션을 선택하고
+                                                // 선택되어있는 옵션은 false로 상태 바꿈
+            })
+        })
+    
+    </script>
+  
+</body>
+</html>

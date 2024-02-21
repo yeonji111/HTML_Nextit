@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form name="frm">
+        <input type="file" name="upload" multiple accept=".zip,.png">
+        <button>확인</button>
+    </form>
+
+    <script>
+        const upload = document.frm.upload;
+        const btn = document.querySelector("button");
+        btn.addEventListener('click', function(e){
+            e.preventDefault();
+            const files = upload.files;
+            for(f of files){
+                console.log(f.name);
+                console.log(f.size);
+                console.log(f.type);
+                console.log(f.lastModifiedName);
+            }
+        })
+        
+
+    </script>
+</body>
+
+</html>
