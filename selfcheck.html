@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>selfcheck.html</title>
+</head>
+<style>
+    #check {
+        color: red;
+    }
+</style>
+
+<body>
+    <form action="#">
+        <fieldset>
+            <legend>로그인</legend>
+            <button>
+                Log in with Google
+            </button>
+        </fieldset>
+
+        <p>or</p>
+        <fieldset>
+            <legend>일반 로그인</legend>
+            <label for="username">
+                <input type="text" name="username" id="username" placeholder="Username">
+
+            </label>
+            <label for="password">
+                <input type="password" name="password" id="password" placeholder="Password">
+            </label>
+
+            <div id="check"></div>
+
+            <div>
+                <button type="submit">Login</button>
+            </div>
+        </fieldset>
+        <a href="#">Forgot your password?</a>
+    </form>
+
+    <script>
+
+
+        // document.forms[0].addEventListener('submit', function (ev) {
+        //     ev.preventDefault(); // 1.폼 전송 이벤트 취소
+        //     const id = document.forms[0].elements['username'];
+        //     const userId = id.value;
+
+        //     const pw = document.forms[0].elements['password'];
+        //     const secCode = pw.value;
+
+
+        //     if (userId == "") { // 입력이 없으면 경고창 띄우고 포커스 이동
+        //         alert('아이디를 입력해주세요.');
+        //         id.focus();
+        //     }
+
+        //     // 아이디 조건 충족했는지 확인 @
+        //     else if (userId.includes('@') == false) {
+        //         // contains 사용하려니까 안됨
+        //         alert('아이디는 이메일 형식으로 입력해주세요');
+        //         id.focus();
+        //     }
+
+        //     // 4번 비밀번호 입력 확인, 경고창 안내, 포커스 이동
+        //     if (secCode == "") {
+        //         alert('비밀번호를 입력해주세요.')
+        //         pw.focus();
+        //     }
+        //     else if (secCode.length < 5) {
+        //         alert('비밀번호는 5자리 이상 입력 해주세요.')
+        //         pw.focus();
+        //     }
+
+        //     document.forms[0].submit();
+        //     // this.submit();
+        // })
+
+
+
+        // 선생님 버전
+        const loginBtn = document.querySelector("button[type='submit']")
+        const userName = document.querySelector("#username")
+        const password = document.querySelector("#password")
+        const loginForm = document.forms[0];
+        const check = document.querySelector("#check")
+
+        loginBtn.addEventListener("click", function (ev) {
+            ev.preventDefault();
+
+            if (userName.value.length == 0) {
+                // alert("아이디를 입력해 주세요");
+                userName.focus();
+                check.innerHTML = "아이디를 입력해주세요"
+                return;
+            }
+            if (!userName.value.includes('@')) {
+                // alert("아이디는 이메일 형식으로 입력해 주세요.");
+                userName.focus();
+                check.innerHTML = "아이디는 이메일 형식으로 입력해 주세요"
+                return;
+            }
+            if (password.value == "") {
+                // alert("비밀번호를 입력해 주세요")
+                check.innerHTML = "비밀번호를 입력해주세요"
+                return;
+            }
+            if (password.value.length < 5) {
+                // alert("패스워드는 5자리 이상입니다.")
+                check.innerHTML = "아이디 혹은 비밀번호가 틀렸습니다."
+                password.focus();
+                return;
+            } else {
+                loginForm.submit();
+                check.remove();
+            }
+            
+        })
+
+
+
+    </script>
+
+</body>
+
+</html>
