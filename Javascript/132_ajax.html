@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table,
+        tr,
+        td,
+        th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="studentList">
+        <tr>
+            <th>이름</th>
+            <th>전공</th>
+            <th>학년</th>
+        </tr>
+    </table>
+    <button id="getBtn">가져오기</button>
+    <script>
+        /*
+        Ajax(Asynchronous Javascript And XML)
+        XMLHttpRequest :자바스크립트에서 서버와 통신하기 위한 객체
+        
+        메소드 : 
+        open() : 요청 초기화(method, url, 비동기여부)
+        send() : 요청 전송(내용)
+        
+        속성:
+        readyState : 객체의 현재 상태
+        responseText : 요청에 대한 응답 문자열 형태 (전송을 위해 직렬화한 문자열의 형태 == stringify() 한 형태)
+        */
+
+        // // 객체 생성
+        // let xhr = new XMLHttpRequest();
+        // // 준비
+        // xhr.open("GET", "student.json");
+        // // 전송
+        // xhr.send();
+        // console.log(xhr)
+
+
+        const getBtn = document.querySelector("#getBtn");
+        getBtn.addEventListener('click', function () {
+            // 객체 생성
+            let xhr = new XMLHttpRequest();
+            // 준비
+            xhr.open("GET", "student.json");
+            // 전송
+            xhr.send();
+            // console.log(xhr)
+
+            /* 
+                readyState
+                0: 아무 요청도 하지 않은 상태
+                1: 서버로 자료 요청 성공
+                2: 서버 요청에 대한 응답으로 헤더가 도착한 상태
+                3: 서버에서 자료가 로딩 중인 상태
+                4: 자료 처리가 끝나 프로그램에서 사용할 수 있는 상태
+            */
+            // xhr.onreadystatechange = function(){
+            //     if(xhr.readyState == 4 && xhr.status == 200){
+            //         let student = JSON.parse(xhr.responseText);
+            //         studentList.innerHTML += `<tr><td>${student.name}</td><td>${student.major}</td><td>${student.grade}</td></tr>`;
+            //     }
+            // }
+
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    let student = JSON.parse(xhr.responseText);
+                    for(let i = 0; i < student.length; i++){
+                        // console.log(student[i])
+                        studentList.innerHTML += `<tr><td>${student[i].name}</td><td>${student[i].major}</td><td>${student[i].grade}</td></tr>`;
+                    }
+
+                    // student.forEach(s => {
+                    //     studentList.innerHTML += `<tr><td>${s.name}</td><td>${s.major}</td><td>${s.grade}</td></tr>`;
+                    // })
+                   
+                }
+            }
+
+
+
+        })
+
+    </script>
+</body>
+
+</html>
