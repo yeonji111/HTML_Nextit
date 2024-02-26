@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    table {
+        text-align: center;
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+
+
+</style>
+
+<body>
+    주소 : https://reqres.in/api/products
+    <table id="userTable2">
+        <tr>
+            <th id = "userId">아이디</th>
+            <th id = "name">이름</th>
+            <th id = "email">이메일</th>
+            <th id = "avatar">아바타</th>
+        </tr>
+        <img src="" alt="">
+
+
+    </table>
+
+    <script>
+        let xhr = new XMLHttpRequest();
+        // 준비
+        xhr.open("GET", "https://reqres.in/api/users");
+        // 전송
+        xhr.send();
+
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                let users = JSON.parse(xhr.responseText);
+                let user = users["data"]
+                // let user = users.data
+
+            //    for(let i = 0; i < user.length; i++){
+            //     userTable.innerHTML += `<tr><td>${user[i].id} </td>
+            //      <td>${user[i].first_name} ${user[i].last_name} </td>
+            //      <td>${user[i].email}</td>
+            //      <td> <img src="${user[i].avatar}" alt="사람"></td></tr>`
+
+            //    }
+
+            user.forEach(user => {
+                userTable.innerHTML += `<tr><td>${user.id}</td><td>${user.first_name} ${user.last_name}</td>
+                                    <td>${user.email}</td><td><img src="${user.avatar}" alt="사람"></td></tr>`
+            })
+
+            }
+        }
+        
+    </script>
+</body>
+
+</html>
