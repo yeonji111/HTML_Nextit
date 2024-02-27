@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table id="productTable">
+        <tr>
+            <th id="userId">아이디</th>
+            <th id="name">이름</th>
+            <th id="email">생산년도</th>
+            <th id="avatar">팬톤 컬러</th>
+            <th id="avatar">색상</th>
+        </tr>
+
+
+    </table>
+
+
+
+<script src = "">
+    // Ajax: XMLHttpRequest를 사용
+    // jQuery 라이브러리 => $.ajax()를 사용하여 ajax 구현
+    // 2015년 ES6에서 fetch라는 비동기 함수 제공
+    // 2016년도 즈음부터 Vanilla JS 운동 : 순수 자바스크립트
+    $.get("https://reqres.in/api/products",
+        function (res) {
+            // 성공했을때 실행할 코드
+            console.log(res);
+        },
+        function (err) {
+            // 실패했을때 실행할 코드
+            console.log(err);
+        })
+    fetch("https://reqres.in/api/products")
+        .then(response => response.json())
+        .then(res => {
+            let products = res.data;
+            products.forEach(p => {
+                productTable.innerHTML += `<tr><td>${p.id}</td><td>${p.name}</td><td>${p.year}</td>
+                    <td>${p.pantone_value}</td><td><input type="color" value = ${p.color}></td></tr>`;
+            })
+        })
+        .catch(err => console.log(err))
+    </script>
+
+</body>
+
+</html>

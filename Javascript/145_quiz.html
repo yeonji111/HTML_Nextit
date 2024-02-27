@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="145_quiz.css">
+</head>
+
+<body>
+    <div id="result">
+        <div class="quote"></div>
+        <div class="author"></div>
+    </div>
+
+    <!-- 사이트 주소 : https://dummyjson.com/quotes -->
+
+    <script>
+        const result = document.querySelector("#result")
+        const quote = document.querySelector(".quote")
+        const author = document.querySelector(".author")
+       
+
+        fetch('https://dummyjson.com/quotes')
+            .then(response => response.json())
+            .then(json => json.quotes)
+            .then(text =>setInterval(
+                function(){
+                    let idx = Math.floor(Math.random() * (text.length + 1));
+                    quote.innerHTML = `<div class = "quote">${text[idx].quote}</div>`
+                    author.innerHTML = `<div class = "author">${text[idx].author}</div>`
+                  
+                }
+                , 5000))
+        
+
+    </script>
+</body>
+
+</html>

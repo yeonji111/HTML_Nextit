@@ -1,24 +1,26 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
 <style>
-    table{
+    table {
         color: rgb(#161616)
     }
 </style>
+
 <body>
     주소 : https://reqres.in/api/products
     <table id="colorTable">
         <tr>
-            <th id = "userId">아이디</th>
-            <th id = "name">이름</th>
-            <th id = "email">생산년도</th>
-            <th id = "avatar">팬톤 컬러</th>
-            <th id = "avatar">색상</th>
+            <th id="userId">아이디</th>
+            <th id="name">이름</th>
+            <th id="email">생산년도</th>
+            <th id="avatar">팬톤 컬러</th>
+            <th id="avatar">색상</th>
         </tr>
         <img src="" alt="">
 
@@ -36,10 +38,10 @@
         xhr.onreadystatechange = function () {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 let colors = JSON.parse(xhr.responseText);
-                let color = colors.data;
-                color.forEach(co => {
-                    colorTable.innerHTML += `<tr><td>${co.id}</td><td>${co.name}</td><td>${co.year}</td>
-                        <td>${co.pantone_value}</td><td><input type="color" value = ${co.color}></td></tr>`;
+                let products = res.data;
+                products.forEach(p => {
+                    productTable.innerHTML += `<tr><td>${p.id}</td><td>${p.name}</td><td>${p.year}</td>
+                        <td>${p.pantone_value}</td><td><input type="color" value = ${p.color}></td></tr>`;
                 })
 
             }
@@ -47,8 +49,9 @@
 
         }
 
-     
+
 
     </script>
 </body>
+
 </html>
