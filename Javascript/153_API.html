@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+    <h3>배송지</h3>
+    <div>
+        <input type="text" name="addr" id="addr" readonly placeholder="주소"><button id="popupBtn">주소검색</button>
+    </div>
+    <div>
+        <input type="text" name="zipCode" id="zipCode" readonly placeholder="우편번호">
+    </div>
+    <div>
+        <input type="text" name="addrDetail" id="addrDetail" placeholder="상세주소 입력">
+    </div>
+    <script>
+        const popupBtn = document.querySelector("#popupBtn");
+        popupBtn.addEventListener("click", function () {
+            window.open("152_API.html", "", "width=400,height=300");
+
+            
+
+        })
+    </script>
+</body>
+</html>
