@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>오늘의 할 일</title>
+<link rel="stylesheet" href="todo.css" >
+
+</head>
+
+<body>
+<header>
+    <h1>오늘의 할 일</h1>
+</header>
+<form>
+    <label for="todoInput">할 일</label>
+    <input type="text" id="todoInput" placeholder="할 일을 입력하세요.">
+    <button id="addBtn">추가</button>
+</form>
+
+<div id="container">
+    <ul id="todoList">
+        <!-- <div class = "todo">
+            <li class = "todo-content">내용</li>
+            <button class = "complete-btn">완료</button>
+            <button class = "delete-btn">삭제</button>
+        </div> -->
+    </ul>
+</div>
+
+
+
+<script>
+    const todoInput = document.querySelector("#todoInput");
+    const addBtn = document.querySelector("#addBtn");
+    const todoList = document.querySelector("#todoList");
+    
+    document.addEventListener("DOMContentLoaded", getLocal);
+    addBtn.addEventListener("click", addTodo);
+    todoList.addEventListener("click", ManageTodo);
+
+
+
+    function addTodo(ev){
+        // ev.preventDefault();
+        todoList.innerHTML += `<div class = "todo"><li class = "todo-content">${todoInput.value}</li><button class = "complete-btn">완료</button><button class = "delete-btn">삭제</button></div>`
+        saveToLocal(todoInput.value);
+        todoInput.value = "";
+    }
+
+    // LocalStorage에 할 일 목록 저장
+    function saveToLocal(todo) {
+        let todos;
+        if(localStorage.getItem("todos") === null){
+            todos = [];
+        } else {
+            todos = JSON.parse(localStorage.getItem("todos")); // 꺼내올때는 parse
+        }
+        todos.push(todo);
+        localStorage.setItem("todos", JSON.stringify(todos)); // 저장할때는 stringify
+    }
+
+    // 화면에 값을 표시하기
+    function getLocal () {
+        let todos = JSON.parse(localStorage.getItem("todos")) || [];
+        todos.forEach(function(todo){
+        todoList.innerHTML += `<div class = "todo"><li class = "todo-content">${todo}</li><button class = "complete-btn">완료</button><button class = "delete-btn">삭제</button></div>`
+        })
+    }
+
+
+    // 할 일 관리
+    // 완료 버튼 이벤트
+    const completeBtn = document.querySelector("complete-btn");
+    completeBtn.addEventListener("click", )
+
+    function ManageTodo(ev){
+        const whichBtn = ev.target.classList[0];
+        if(whichBtn === "complete-btn"){
+            // 완료 버튼을 눌렀을 경우
+            // console.log(ev.target)
+            ev.target.parentElement.children[0].classList.toggle("completed");
+        }
+        if(whichBtn === "delete-btn"){
+            // 삭제 버튼을 눌렀을 경우   
+            const deleteData = ev.target.parentElement
+            localStorage.removeItem("deleteData");
+            console.log(deleteData)
+            // deleteData.innerHTML = ``;
+            console.log(result)
+        
+        }
+        console.log(whichBtn)
+    }
+
+
+
+    // 삭제 버튼 이벤트
+    const delteBtn = document.querySelector("#delete-btn");
+</script>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let students = ["강성구", "정회환", "이창훈", "이용석","이건희"];
+        localStorage.setItem("students", JSON.stringify(students));
+        console.log(students);
+        // let students2 = JSON.parse(localStorage.getItem("students"));
+
+        // 삭제하기
+        // localStorage.removeItem("students"); // => students (배열)을 삭제
+        let data = JSON.parse(localStorage.getItem("students")); // 배열에 담긴 value값을 삭제
+        let name = data.pop();
+        console.log("제외한 이름: " +name)
+        localStorage.setItem("students", JSON.stringify(data));
+
+        let codes = [   
+        {ord: 1, contents: "MBTI", parent: null, code: "MBTI_000"},
+        {ord: 2, contents: "ISTJ", parent: "MBTI_000", code: "MBTI_001"},
+        {ord: 2, contents: "ISFJ", parent: "MBTI_000", code: "MBTI_001"}
+        ];
+        localStorage.setItem("codes", JSON.stringify(codes));
+
+    </script>
+
+</body>
+</html>
