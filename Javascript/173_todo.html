@@ -74,6 +74,9 @@
     // 완료 버튼 이벤트
     const completeBtn = document.querySelector("complete-btn");
     completeBtn.addEventListener("click", )
+    let idx = 0;
+
+    
 
     function ManageTodo(ev){
         const whichBtn = ev.target.classList[0];
@@ -84,20 +87,24 @@
         }
         if(whichBtn === "delete-btn"){
             // 삭제 버튼을 눌렀을 경우   
-            const deleteData = ev.target.parentElement
-            localStorage.removeItem("deleteData");
-            console.log(deleteData)
-            // deleteData.innerHTML = ``;
-            console.log(result)
+        
+        const deleteData = ev.target.parentElement;// 사용자가 선택한 요소 싹다
+        let todos = JSON.parse(localStorage.getItem("todos")) || []; // 삭제버튼이 있다는건 이미 데이터가 있는거니까 '["자바스크립트 과제2","아두이노 과제1"]' 존재
+        let todoContent = deleteData.querySelector(".todo-content").innerText; // == ${todo} 사용자가 입력한 값("자바스크립트 과제2")
+
+        // // Remove the corresponding todo from localStorage
+        todos = todos.filter(todo => todo !== todoContent); // 사용자가 입력한 값과 같지 않은것만 필터링해서 새로 배열 생성
+        localStorage.setItem("todos", JSON.stringify(todos)); // 새로 만든 배열로 localStorage 업뎃
+
+        // Remove the corresponding todo from the display
+        // deleteData.innerHTML = ``;
+        deleteData.remove(); // 사용자가 선택한 요소 싹 삭제
+        
         
         }
         console.log(whichBtn)
     }
 
-
-
-    // 삭제 버튼 이벤트
-    const delteBtn = document.querySelector("#delete-btn");
 </script>
 
 </body>
