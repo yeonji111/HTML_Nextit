@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <script>
+        // jQuery를 많이 사용했던 이유 중 하나는 Ajax이다.
+        document.addEventListener("DOMContentLoaded", function(){
+            $("#studentList").html("Hello"); // 앞에 stdentList가 선행되어야하는데 아니므로 html에 hello가 적용 X
+        })();
+
+        $.get("../Javascript/student.json", function (students) {
+        //     students.forEach(s => {
+        //         studentList.innerHTML += `<tr><td>${s.name}</td><td>${s.major}</td><td>${s.grade}</td></tr>`
+        //     });
+
+        // let html = `<tr> <th>이름</th> <th>전공</th> <th>학년</th> </tr>`
+        // $.each(students, (_, s) => {
+        //     html += `<tr><td>${s.name}</td><td>${s.major}</td><td>${s.grade}</td></tr>`
+        // })
+        // $("#studentList").html(html);
+
+        $.each(students, (idx, s) => {
+            $("#studentList").html(function (_,html){
+                return html + `<tr><td>${idx}${s.name}</td><td>${s.major}</td><td>${s.grade}</td></tr>`
+            });
+        })
+        })
+
+       
+    </script>
+
+<body>
+    <table id="studentList">
+        <tr>
+            <th>이름</th>
+            <th>전공</th>
+            <th>학년</th>
+        </tr>
+    </table>
+
+    
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id = "addBtn">추가</button>
+    <div id = "result"></div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        // 현재 문서에 요소를 생성해서 추가하기
+        // <h3>안녕하세요.<h3> => 글자색 : 파란색, 배경색 : 노란색
+        // 1. javascript
+        // const addBtn = document.querySelector("#addBtn");
+        // addBtn.addEventListener('click', function(){
+
+        // const h3El = document.createElement("h3");
+        // // h3El.textContent = "안녕하세요.";
+        // const textNode = document.createTextNode("안녕하세요.");
+        // h3El.appendChild(textNode);
+        // h3El.style.color = "blue";
+        // h3El.style.backgroundColor = "yellow";
+
+        // const result = document.querySelector("#result");
+        // // result.appendChild(h3El);
+        //     result.after(h3El)
+        // })
+      
+        let idx = 0;
+        // 2. jQuery
+        $("#addBtn").on('click',function(){
+            $("<h3></h3>")
+            .text(++idx + "안녕하세요")
+            .css({ color:"blue", backgroundColor: "yellow" })
+            // .prependTo("#result")
+            .appendTo("#result")
+        })
+
+        
+        
+    </script>
+</body>
+</html>

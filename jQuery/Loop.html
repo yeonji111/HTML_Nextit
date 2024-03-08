@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>jQuery</h1>
+    <div>
+        <div id="header">헤더</div>
+        <div id="nav">내비</div>
+        <div id="main">
+            <h1>메인화면</h1>
+            <p>내용1</p>
+            <p>내용2</p>
+            <p>내용3</p>
+            <p>내용4</p>
+        </div>
+        <div id="footer">푸터</div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script>
+        // $("#main p").hide(); // jquery에 하위선택자 적용
+        // $("#main").find("p").hide(); // find() - 자식을 찾을 때 사용하는 함수
+        $("#main").find("h1").css("color", "red")
+
+
+        // 자바스크립트로 아이디가 main 요소의 자식 중 모든 h1태그를 선택한 뒤
+        // 스타일의 background-color 속성의 값을 노란색으로 바꾼다.
+        // document.querySelector("#main h1").style.backgroundColor = "yellow";
+
+        // 아이디가 nav인 요소의 부모를 선택한 뒤,
+        // 스타일의 background-color 속성의 값을 green으로 변경한다.
+        // 자바스크립트 방식)
+        // document.querySelector("#nav").parentElement.style.backgroundColor = "green";
+        // document.querySelector("#nav").parentNode.style.backgroundColor = "green";
+
+        // 제이쿼리 방식)
+        // $("#nav").parent().css("backgroundColor", "green");
+
+        // 아이디가 main 요소의 자식들 중에서 모든 p태그를 선택한 뒤
+        // 홀수 번째 요소만 글자 색을 빨강색으로 변경하시오.
+
+        // const list = document.querySelectorAll("#main p");
+        // for(let i = 0; i < list.length; i++){
+        //     if(i % 2 == 0){
+        //         list[i].style.color = "red";
+        //     }
+        // }
+
+        // const pList = $("#main p");
+        // for(let i = 0; i < pList.length; i++){
+        //     if(i % 2 == 0){
+        //         pList[i].style.color = "red";
+        //     }
+        // }
+
+        // const pEls = document.querySelectorAll("#main p");
+        // pEls.forEach((el, idx) => {
+        //     if (idx % 2 == 0) {
+        //         el.style.color = "red";
+        //     }
+        // });
+
+        $("#main p").each((idx,el) => {
+            if (idx % 2 == 0) {
+                // el.style.color = "red";
+                $(el).css("color", "red");
+                /*
+                jQuery 객체를 Javascript 객체로 변경하는 방법
+                1. $(el).get(0);      
+                2. $(el)[0];
+
+                Javascript 객체를 jQuery 객체로 변경하는 방법
+                el => $(el);
+                */
+            }
+        })
+
+        $("#main p:even").each((idx,el) => {
+            $(el).css("color", "red");
+        })
+
+        // $("#main p:odd").each((idx,el) => {
+        //     $(el).css("color", "red");
+        // })
+
+    </script>
+
+
+</body>
+
+</html>
